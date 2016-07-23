@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Fallout Shelter Family Tree</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/DeEn.js"></script>
+		<script src="js/json2.min.js"></script>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/viz.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/FTree.js"></script>
+	</head>
+	<body ng-app="modFTree" ng-controller="ftreeController" onload="ftreeLoad();">
+		<div class="container">
+			<form class="form-inline" name="optionsForm">
+				<div class="form-group">
+					<label>Load save: </label>
+					<input type="file" id="file_ftree" name="file_ftree">
+				</div>
+				<hr>
+				<div class="form-group">
+					<label>Dwellers Shape:</label>
+					<select name="dwellersShape" ng-model="options.dwellersShape" ng-options="shape.type for shape in dwellersShapes">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Dwellers Fill Color:</label>
+					<select name="dwellersFillColor" ng-model="options.dwellersFillColor" ng-options="color.type for color in dwellersFillColors">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Dwellers Border Color:</label>
+					<select name="dwellersBorderColor" ng-model="options.dwellersBorderColor" ng-options="color.type for color in dwellersBorderColors">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Dwellers Font Color:</label>
+					<select name="dwellersFontColor" ng-model="options.dwellersFontColor" ng-options="color.type for color in dwellersFontColors">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Parents line colors:</label>
+					<select name="parentsLineColor" ng-model="options.parentsLineColor" ng-options="type.type for type in parentsLineColors">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Parents line types:</label>
+					<select name="parentsLineType" ng-model="options.parentsLineType" ng-options="type.type for type in parentsLineTypes">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Grandparents line colors:</label>
+					<select name="grandparentsLineColor" ng-model="options.grandparentsLineColor" ng-options="type.type for type in grandparentsLineColors">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Grandparents line types:</label>
+					<select name="grandparentsLineType" ng-model="options.grandparentsLineType" ng-options="type.type for type in grandparentsLineTypes">
+					</select>
+				</div>
+				<hr>
+				<div class="form-group">
+					<button class="btn btn-primary" type="button" ng-click="generateTree()">Generate Family Tree</button>
+				</div>
+			</form>
+			<br>
+			<div id="ftreeDiv">
+				<img id="vaultBoy" src="standing.jpg" style="display:block">
+				<img id="familyTreeImage" style="display: none;" data-ng-src="{{familyImage.src}}">
+			</div>
+			<hr>
+			<br>
+			<center><b><a href="https://rakion99.github.io/shelter-editor/">Go back to Fallout Shelter Save Editor</a></b></center>
+		</div>
+	</body>
+</html>
