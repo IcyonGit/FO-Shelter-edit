@@ -61,6 +61,11 @@
 				</div>
 				<hr>
 				<div class="form-group">
+					<label>Engine (graph visualization format):</label>
+					<select name="engine" ng-model="options.engine" ng-options="engine.name for engine in engines">
+					</select>
+				</div>
+				<div class="form-group">
 					<button class="btn btn-primary" type="button" ng-click="generateTree()">Generate Family Tree</button>
 				</div>
 			</form>

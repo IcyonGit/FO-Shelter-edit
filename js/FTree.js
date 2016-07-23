@@ -57,6 +57,14 @@ app.controller('ftreeController', function ($scope) {
 		{type:'Black'},
 		{type:'Hair'}
 	];
+	$scope.engines = [
+		{name:'circo'},
+		{name:'dot'},
+		{name:'fdp'},
+		{name:'neato'},
+		{name:'osage'},
+		{name:'twopi'}
+	];
 	$scope.options = {};
 	$scope.loaded=false;
 
@@ -68,6 +76,7 @@ app.controller('ftreeController', function ($scope) {
 	$scope.options.dwellersFillColor = $scope.dwellersFillColors[1];
 	$scope.options.dwellersBorderColor = $scope.dwellersBorderColors[1];
 	$scope.options.dwellersFontColor = $scope.dwellersFontColors[0];
+	$scope.options.engine = $scope.engines[1];
 
 	$scope.setGameObject = function(gameObject){
 		$scope.gameObject = gameObject;
@@ -140,7 +149,7 @@ app.controller('ftreeController', function ($scope) {
 		if(debugOptions.printGraphString)
 			console.log(nodes + edges);
 
-		var image = Viz('digraph g {'+nodes + edges+'}', { format: 'png-image-element' });
+		var image = Viz('digraph g {'+nodes + edges+'}', { engine: $scope.options.engine.name, format: 'png-image-element' });
 		image.id = "familyTreeImage";
 		image.alt = "Click to open in a new tab";
 		image.onclick = function(){
