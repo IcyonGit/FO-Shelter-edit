@@ -220,7 +220,7 @@ a.tab:focus {
 
 .instructions input {
   display: inline-block;
-  
+
 }
 
 .boy {
@@ -331,7 +331,7 @@ a.list-group-item, a.list-group-item, button.list-group-item, button.list-group-
 .presets {
   margin-top: 30px;
   margin-bottom: 10px;
-  height: 370px;
+  height: 390px;
   width: 100%;
   border: 4px solid #467bb7;
   border-radius: 10px;

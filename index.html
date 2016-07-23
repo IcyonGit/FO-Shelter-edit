@@ -48,19 +48,19 @@
                 <label>Mr. Handies</label>
                 <input type="number" class="form-control" name="handy" ng-model="handyCount">
               </div>
-			  
+
 			  <div class="col-sm-4">
                 <label>Pet Carrier</label>
                 <input type="number" class="form-control" name="petCarrier" ng-model="petCarrierCount">
               </div>
-              
+
               <div class="col-sm-4">
                 <label>Starter Pack</label>
                 <input type="number" class="form-control" name="starterPack" ng-model="starterPackCount">
               </div>
-              
+
             </div>
-            
+
             <div class="form-group row">
               <div class="col-sm-4">
                 <button type="button" class="btn btn-primary pull-right" ng-click="removeRocks()">Remove Rocks</button>
@@ -72,13 +72,13 @@
                 <button type="button" class="btn btn-primary pull-right" ng-click="unlockrecipes()">Unlock All Recipes</button>
               </div>
             </div>
-            
+
             <div class="form-group row">
               <div class="col-sm-4">
                 <label>Vault Mode</label>
                 <select class="form-control" name="VaultMode" ng-model="save.vault.VaultMode" ng-options="label as value for (label,value) in { Normal: 'Normal', Survival: 'Survival' }"></select>
               </div>
-              
+
               <div class="col-sm-4">
                 <label>Vault Theme</label>
                 <select class="form-control" name="VaultTheme" ng-model="save.vault.VaultTheme" ng-options="key*1 as value for (key,value) in { 0: 'Normal', 1: 'Xmas', 2: 'Halloween', 3: 'ThanksGiving' }"></select>
@@ -113,13 +113,13 @@
                 <input type="number" class="form-control" name="radaway" ng-model="save.vault.storage.resources.RadAway">
               </div>
             </div>
-            
+
             <div class="form-group row">
               <div class="col-sm-4">
                 <label>Save app Version:</label><label ng-bind="save.appVersion"></label>
               </div>
             </div>
-            
+
           </form>
 
         </div>
@@ -169,7 +169,7 @@
                 <label>Health</label>
                 <input type="number" class="form-control" name="health" ng-model="dweller.health.healthValue">
               </div>
-              
+
               <div class="col-sm-4">
                 <label>Max Health</label>
                 <input type="number" class="form-control" name="maxhealth" ng-model="dweller.health.maxHealth">
@@ -179,17 +179,17 @@
                 <label>Radiation</label>
                 <input type="number" class="form-control" name="radiation" ng-model="dweller.health.radiationValue">
               </div>
-              
+
               <div class="col-sm-4">
                 <label>Level</label>
                 <input type="number" class="form-control" name="level" ng-model="dweller.experience.currentLevel">
               </div>
-              
+
               <div class="col-sm-4">
                 <label>Skin Color</label>
                 <input type="number" class="form-control" name="skincolor" ng-model="dweller.skinColor">
               </div>
-              
+
               <div class="col-sm-4">
                 <label>Hair Color</label>
                 <input type="number" class="form-control" name="hairColor" ng-model="dweller.hairColor">
@@ -253,6 +253,7 @@
         <button class="btn" onclick="preset('SuperHack', document.getElementById('presetSaveName').value)">Super Hack</button>
         <hr>
         <br><center><b><a href="SaveDecrypt.html">Fallout Shelter Save Decryptor</a></b></center>
+        <br><center><b><a href="FamilyTree.html">Fallout Shelter Family Tree Visualization</a></b></center>
 
       </div>
 
