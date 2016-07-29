@@ -1268,8 +1268,6 @@ function decrypt(evt, fileName, base64Str,options) {
 		if(options.returnObject != undefined)
 			returnObject = options.returnObject;
 	}
-	console.log('saveFile',saveFile);
-	console.log('returnObject',returnObject);
 
     var cipherBits = sjcl.codec.base64.toBits(base64Str);
     var prp = new sjcl.cipher.aes(key);
