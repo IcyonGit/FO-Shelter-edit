@@ -105,6 +105,39 @@
                 <input type="number" class="form-control" min="0" name="radaway" ng-model="save.vault.storage.resources.RadAway">
               </div>
             </div>
+            
+            <hr />
+
+            <div class="form-group row">
+              <div class="col-sm-4">
+                <label>Remove Rocks</label><br />
+                <button type="button" class="btn btn-primary" ng-click="removeRocks()">Activate</button>
+              </div>
+              <div class="col-sm-4">
+                  <label>Unlock All Rooms</label><br />
+                <button type="button" class="btn btn-primary" ng-click="unlockrooms()">Activate</button>
+              </div>
+              <div class="col-sm-4">
+                <label>Unlock All Recipes</label><br />
+                <button type="button" class="btn btn-primary" ng-click="unlockrecipes()">Activate</button>
+              </div>
+            </div>
+            <hr />
+
+            <div class="form-group row">
+            <div class="col-sm-4">
+              <label>Max All Dweller Stats</label><br />
+               <button type="button" class="btn btn-primary" ng-click="maxSpecialAll()">Activate</button>
+            </div>
+            <div class="col-sm-4">
+              <label>Max All Dweller Happiness</label><br />
+               <button type="button" class="btn btn-primary" ng-click="maxhappinessAll()">Activate</button>
+            </div>
+            <div class="col-sm-4">
+              <label>Heal All Dwellers</label><br />
+               <button type="button" class="btn btn-primary" ng-click="healAll()">Activate</button>
+            </div>
+            </div>
 
             <div class="form-group row">
               <div class="col-sm-4">
