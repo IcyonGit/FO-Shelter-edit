@@ -1235,6 +1235,21 @@ function handleFileSelect(evt) {
                     }
                 };
                 reader.readAsText(f)
+            } else if (evt.target.id == "file_ftree") {
+                reader.onload = function(evt2) {
+                    try {
+						var options = {
+							saveFile: false,
+							returnObject: true
+						};
+                        decrypt(evt2, fileName, reader.result,options);
+						if(loadGameObject)
+							loadGameObject(options.gameObject);
+                    } catch (e) {
+                        alert("Error: " + e)
+                    }
+                };
+                reader.readAsText(f)
             }
         }
     } catch (e) {
@@ -1244,21 +1259,36 @@ function handleFileSelect(evt) {
     }
 }
 
-function decrypt(evt, fileName, base64Str) {
+function decrypt(evt, fileName, base64Str,options) {
+	var saveFile = true;
+	var returnObject = false;
+	if(options){
+		if(options.saveFile != undefined)
+			saveFile = options.saveFile;
+		if(options.returnObject != undefined)
+			returnObject = options.returnObject;
+	}
+
     var cipherBits = sjcl.codec.base64.toBits(base64Str);
     var prp = new sjcl.cipher.aes(key);
     var plainBits = sjcl.mode.cbc.decrypt(prp, cipherBits, iv);
     var jsonStr = sjcl.codec.utf8String.fromBits(plainBits);
+	var gameObject = undefined;
     try {
-        JSON.parse(jsonStr)
+        gameObject = JSON.parse(jsonStr);
     } catch (e) {
         throw "Decrypted file does not contain valid JSON: " + e
     }
-    var prettyJsonStr = JSON.stringify(JSON.parse(jsonStr), null, 2);
+    var prettyJsonStr = JSON.stringify(gameObject, null, 2);
     var blob = new Blob([prettyJsonStr], {
         type: "application/json"
     });
-    saveAs(blob, fileName.replace(".sav", ".json"))
+
+	if(returnObject)
+		options.gameObject = gameObject;
+
+	if(saveFile)
+		saveAs(blob, fileName.replace(".sav", ".json"))
 }
 
 function encrypt(evt, fileName, jsonStr) {

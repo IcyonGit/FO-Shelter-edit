@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Fallout Shelter Family Tree</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<script src="js/DeEn.js"></script>
+		<script src="js/json2.min.js"></script>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/viz.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/FTree.js"></script>
+	</head>
+	<body ng-app="modFTree" ng-controller="ftreeController">
+		<div class="container" style="width: 100%;">
+			<form class="form-inline" name="optionsForm">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="form-group">
+							<label>Load save: </label>
+							<input type="file" id="file_ftree" name="file_ftree">
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary" type="button" onclick="$('#advancedOptions').toggleClass('hidden');">Advanced options</button>
+						</div>
+				<div id="advancedOptions" class="panel panel-default hidden">
+					<div class="panel-body">
+						<div class="form-group">
+							<label>Dwellers Shape:</label>
+							<select name="dwellersShape" ng-model="options.dwellersShape" ng-options="shape.type for shape in dwellersShapes">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Dwellers Fill Color:</label>
+							<select name="dwellersFillColor" ng-model="options.dwellersFillColor" ng-options="color.type for color in dwellersFillColors">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Dwellers Border Color:</label>
+							<select name="dwellersBorderColor" ng-model="options.dwellersBorderColor" ng-options="color.type for color in dwellersBorderColors">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Dwellers Font Color:</label>
+							<select name="dwellersFontColor" ng-model="options.dwellersFontColor" ng-options="color.type for color in dwellersFontColors">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Parents line colors:</label>
+							<select name="parentsLineColor" ng-model="options.parentsLineColor" ng-options="type.type for type in parentsLineColors">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Parents line types:</label>
+							<select name="parentsLineType" ng-model="options.parentsLineType" ng-options="type.type for type in parentsLineTypes">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Grandparents line colors:</label>
+							<select name="grandparentsLineColor" ng-model="options.grandparentsLineColor" ng-options="type.type for type in grandparentsLineColors">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Grandparents line types:</label>
+							<select name="grandparentsLineType" ng-model="options.grandparentsLineType" ng-options="type.type for type in grandparentsLineTypes">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Siblings line types:</label>
+							<select name="siblinghoodOption" ng-model="options.siblinghoodOption" ng-options="opt.name for opt in siblinghoodOptions">
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Graph orientation:</label>
+							<select name="rankdirOption" ng-model="options.rankdir" ng-options="opt.name for opt in rankdirs">
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Engine (graph visualization format):</label>
+					<select name="engine" ng-model="options.engine" ng-options="engine.name for engine in engines">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Output type:</label>
+					<select name="output" ng-model="options.output" ng-options="output.name for output in outputs">
+					</select>
+				</div>
+				<div class="form-group">
+					<div class="btn-group" role="group" >
+						<button id="btnGenerateTree" class="btn btn-danger" type="button" ng-click="generateTree()">Generate Family Tree</button>
+						<button id="btnGenerateCouplesGraph" class="btn btn-danger" type="button" ng-click="generateCouplesGraph()">Generate Couples Graph</button>
+				</div>
+				</div>
+					</div>
+				</div>
+			</form>
+			<br>
+			<div id="ftreeDiv">
+				<img id="vaultBoy" src="standing.jpg" style="display:block">
+				<div ng-show="!showingGraph()">
+					<ul>
+						<li>Your save won't be uploaded to the web, just loaded into your browser's memory</li>
+						<li>Click in the load file button to select yout save
+							<ul>
+								<li>Windows: <b>C:\Users\&lt;user_name&gt;\Documents\My Games\Fallout Shelter</b></li>
+							</ul>
+						</li>
+						<li>Use the advanced options to tune your visualization as you please</li>
+					</ul>
+				</div>
+				<div id="resultDiv" style="display: block;"></div>
+			</div>
+			<hr>
+			<br>
+			<center><b><a id="linkBackToShelter">Go back to Fallout Shelter Save Editor</a></b></center>
+		</div>
+	</body>
+</html>
