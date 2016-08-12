@@ -370,4 +370,8 @@ app.controller('ftreeController', function ($scope) {
 			$(resultElement).appendTo('#resultDiv');
 		}
 	}
+
+	$scope.showingGraph = function() {
+		return $('#vaultBoy:visible').length == 0;
+	}
 });
