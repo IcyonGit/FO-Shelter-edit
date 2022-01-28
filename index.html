@@ -1,5 +1,5 @@
 <!--
-Copyright (C) 2017 
+Copyright (C) 2017
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
@@ -288,7 +288,7 @@ Copyright (C) 2017
               <select class="form-control" name="equipedOutfit" ng-model="dweller.equipedOutfit.id"
                 ng-options="label as value for (label,value) in dwelleroutfitslist"></select>
             </div>
-          
+
             <div class="col-sm-4">
               <label>Equiped Weapon</label>
               <select class="form-control" name="equipedWeaponid" ng-model="dweller.equipedWeapon.id"
@@ -317,6 +317,7 @@ Copyright (C) 2017
 
           <div class="row save">
             <button type="button" class="btn btn-primary pull-right" ng-click="maxSpecial()">Max Stats</button>
+            <button type="button" class="btn btn-primary pull-right" ng-click="deleteDweller()">Delete dweller</button>
           </div>
           <br>
           <br>
@@ -339,12 +340,12 @@ Copyright (C) 2017
               <input type="text" class="form-control" name="otherName" placeholder="Name"
                 ng-model="otherName">
             </div>
-    
+
             <div class="col-sm-4">
               <label>Health</label>
               <input type="number" class="form-control" name="healthother" min="0" ng-model="other.health">
             </div>
-    
+
             <div class="col-sm-4">
               <label>Is Death?</label>
               <select class="form-control" name="death" ng-model="other.death"
